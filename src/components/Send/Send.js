@@ -26,6 +26,7 @@ const Send = (props) => {
                 state: {
                     rating: props.rating,
                     logo: props.logo,
+                    name: props.name
                 },
             }}
             className={send.item}
