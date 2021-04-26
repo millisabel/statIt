@@ -1,0 +1,17 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+
+    height: 100%;
+}
+
+.item a{
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.item:hover a{
+    color: var(--other-color);
+}

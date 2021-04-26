@@ -1,0 +1,23 @@
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+time span:first-child{
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+time span:last-child{
+}

@@ -1,0 +1,16 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 414px;
+    min-height: 100vh;
+    height: auto;
+    margin: 0 auto;
+
+    background: linear-gradient(110deg, var(--white), var(--secondary-color));
+}
+
+.wrap:last-child{
+    flex-grow: 1;
+}

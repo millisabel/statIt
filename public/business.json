@@ -1,0 +1,53 @@
+{
+  "business": [
+    {
+      "id": 1,
+      "name": "Silpo",
+      "logo": "/assets/Silpo.png",
+      "points": [
+        {
+          "id": 1,
+          "address": "Odesa"
+        },
+        {
+          "id": 2,
+          "address": "Poltava"
+        },
+        {
+          "id": 3,
+          "address": "Kuiv"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ATB",
+      "logo": "/assets/ATB.svg",
+      "points": [
+        {
+          "id": 4,
+          "address": "Lvov"
+        },
+        {
+          "id": 5,
+          "address": "Toretsk"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Eva",
+      "logo": "/assets/Eva.png",
+      "points": [
+        {
+          "id": 6,
+          "address": "Kramatorsk"
+        },
+        {
+          "id": 7,
+          "address": "Slavansk"
+        }
+      ]
+    }
+  ]
+}

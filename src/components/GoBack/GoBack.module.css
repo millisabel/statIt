@@ -1,0 +1,25 @@
+.box{
+    width: 30px;
+    height: 30px;
+    margin: 0 0 0 15px;
+}
+
+.link{
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    background: transparent;
+
+    border: 4px solid var(--white);
+    border-right: none;
+    border-top: none;
+    transform: rotate(45deg);
+
+    transition: 0.3s linear;
+}
+
+.link:hover{
+    border-color: var(--other-color);
+}
+

@@ -1,0 +1,8 @@
+.box{
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    padding-left: 30px;
+
+    background: var(--main-color);
+}

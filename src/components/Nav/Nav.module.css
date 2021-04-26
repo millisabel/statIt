@@ -1,0 +1,24 @@
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--main-color);
+}
+
+.item{
+    flex-grow: 1;
+    padding: 5px 0;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    color: var(--main-color);
+
+    transition: 1s;
+}
+
+.active{
+    border-color: var(--main-color);
+}

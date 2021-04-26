@@ -1,0 +1,18 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
+
+.box{
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    font-family: 'Kalam', cursive;
+    color: var(--white);
+}
+
+.img{
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+}
