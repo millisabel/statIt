@@ -21,7 +21,7 @@ function App() {
             <div className={'wrap'}>
                 <Header/>
                 <Nav/>
-                <Route exact path="/">
+                <Route exact path="/statIt">
                     <p className={scanner.text}>Временный блок, эмуляция сканера</p>
                     <TestLinks/>
                 </Route>

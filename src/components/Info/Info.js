@@ -11,7 +11,7 @@ const data = [
     {
         "id": 1,
         "name": "Silpo",
-        "logo": "/assets/Silpo.png",
+        "logo": "assets/Silpo",
         // "color": "255, 106, 0",
         "points": [
             {
@@ -31,7 +31,7 @@ const data = [
     {
         "id": 2,
         "name": "ATB",
-        "logo": "/assets/ATB.svg",
+        "logo": "./assets/ATB.svg",
         "color": "37, 107, 177",
         "points": [
             {

@@ -22,6 +22,7 @@ const About = (props) => {
             <div className={about.item}>
                 <Image
                     src = {`${props.logo}`}
+                    name = {`${props.businessName}`}
                     alt = "logo"
                 />
             </div>
