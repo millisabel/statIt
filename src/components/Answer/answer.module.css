@@ -2,7 +2,8 @@
     align-self: flex-end;
     position: relative;
 
-    padding-right: 40px;
+    padding-right: 25px;
+    margin-right: 10px;
 }
 
 .item::before{

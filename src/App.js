@@ -2,7 +2,8 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from "react-router-dom";
 
 import Header from "./components/Header/Header";
@@ -21,11 +22,8 @@ function App() {
             <div className={'wrap'}>
                 <Header/>
                 <Nav/>
-                <Route exact path="/">
-                    <p className={scanner.text}>Временный блок, эмуляция сканера</p>
-                    <TestLinks/>
-                </Route>
                 <Switch>
+                    <Redirect push from="/statIt"  to="/info"/>
                     <Route path="/statics" component={Profile} />
                     <Route path="/info" component={Scanner} />
                     <Route path="/profile" component={Statics} />

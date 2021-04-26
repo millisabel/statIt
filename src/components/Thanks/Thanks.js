@@ -12,7 +12,7 @@ const Thanks = (props) => {
             <div className={thanks.wrap}>
                 <Image
                     src = {props.logo}
-                    name = props.location.state.name
+                    name = {props.location.state.name}
                     alt = "logo"
                 />
             </div>
