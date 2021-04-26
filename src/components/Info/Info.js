@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {withRouter} from "react-router-dom";
 
 import Send from "../Send/Send";
@@ -12,7 +12,7 @@ const data = [
         "id": 1,
         "name": "Silpo",
         "logo": "assets/Silpo",
-        // "color": "255, 106, 0",
+        "color": "255, 106, 0",
         "points": [
             {
                 "id": 1,
@@ -115,6 +115,7 @@ const Info = (props) => {
                 comment={comment}
                 answer={answer}
                 logo={logo}
+                name={business}
             />
         </div>
     );
