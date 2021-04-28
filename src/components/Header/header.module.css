@@ -5,4 +5,5 @@
     padding-left: 30px;
 
     background: linear-gradient(var(--main-color), rgba(var(--rgb-dark-blue), 0.3), var(--main-color));
+    box-shadow: 0 1px 4px #999;
 }
