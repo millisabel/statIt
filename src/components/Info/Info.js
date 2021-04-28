@@ -16,15 +16,15 @@ const data = [
         "points": [
             {
                 "id": 1,
-                "address": "Odessa"
+                "address": "Odessa, Str.Bulgakov, 11"
             },
             {
                 "id": 2,
-                "address": "Poltava"
+                "address": "Poltava, Str.Bulgakov, 11"
             },
             {
                 "id": 3,
-                "address": "Kuiv"
+                "address": "Kuiv, Str.Bulgakov, 11"
             }
         ]
     },
@@ -36,11 +36,11 @@ const data = [
         "points": [
             {
                 "id": 4,
-                "address": "Lvov"
+                "address": "Lvov, Str.Bulgakov, 11"
             },
             {
                 "id": 5,
-                "address": "Toretsk"
+                "address": "Toretsk, Str.Bulgakov, 11"
             }
         ]
     },
@@ -52,11 +52,11 @@ const data = [
         "points": [
             {
                 "id": 6,
-                "address": "Kramatorsk"
+                "address": "Kramatorsk, Str.Bulgakov, 11"
             },
             {
                 "id": 7,
-                "address": "Slavansk"
+                "address": "Slavansk, Str.Bulgakov, 11"
             }
         ]
     }

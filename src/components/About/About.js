@@ -16,7 +16,7 @@ const About = (props) => {
                 </p>
                 <p>
                     <span className={about.title}>Ticket window: </span>
-                    <span>{props.businessPoint}</span>
+                    <span>№ {props.businessPoint}</span>
                 </p>
             </div>
             <div className={about.item}>
