@@ -12,7 +12,8 @@
 
     border: 5px solid rgba(var(--rgb-dark-blue), 0.5);
     border-radius: 10px;
-    background: var(--main-color);
+
+    background: linear-gradient(var(--main-color), rgba(var(--rgb-dark-blue), 0.3), var(--main-color));
 
     transition: 0.5s linear;
 }

@@ -2,16 +2,28 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 10px;
 
+    padding: 0;
     height: 100%;
+
+    list-style: none;
 }
 
-.item a{
-    text-decoration: none;
+.item{
+    padding: 10px 0;
+    border-bottom: 1px solid  var(--main-color);
     color: var(--main-color);
 }
 
-.item:hover a{
-    color: var(--other-color);
+.item:hover{
+    color: #fff;
+    background: var(--main-color);
+    box-shadow: 0 3px 9px #999;
+}
+
+.item a{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
 }
