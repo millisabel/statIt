@@ -23,6 +23,12 @@ const Comment = (props) => {
         return e.target.innerText;
     };
 
+    const handleKeyPress = (e) => {
+        if(e.target.innerText.length > 10){
+            e.preventDefault();
+        }
+    };
+
 
     return (
         <div
@@ -31,6 +37,7 @@ const Comment = (props) => {
             onClick = {handleClick}
             onBlur={(e) => props.onClick(handleBlur(e))}
             onChange={(e) => props.onClick(handleOut(e))}
+            onKeyPress={(e) => props.onClick(handleKeyPress(e))}
             suppressContentEditableWarning={true}
         >{userComment}</div>
     );

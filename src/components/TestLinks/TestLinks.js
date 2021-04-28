@@ -19,7 +19,7 @@ const TestLinks = () => {
                 <Link to="info/1/0">ATB 1</Link>
             </li>
             <li className={links.item}>
-                <Link to="info/1/1">ATB 1</Link>
+                <Link to="info/1/1">ATB 2</Link>
             </li>
             <li className={links.item}>
                 <Link to="info/2/0">Eva 1</Link>

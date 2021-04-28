@@ -71,7 +71,7 @@ const Info = (props) => {
     const point = data[businessId].points[pointerId].id;
     const [comment, setComment] = useState(null);
     const [answer, setAnswer] = useState(null);
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(5);
     const [color, setColor] = useState(data[businessId].color);
 
     if(!color){
