@@ -17,7 +17,6 @@ const Send = (props) => {
         console.log(data);
         console.log(JSON.stringify(data));
     }
-    console.log(props);
 
     return (
         <Link

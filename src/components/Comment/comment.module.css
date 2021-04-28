@@ -4,16 +4,19 @@
     height: auto;
     padding: 7px 10px 5px;
 
-    font-size: 14px;
+    font-size: 1.6em;
+    color: initial;
 
     border: none;
     border-bottom: 1px solid var(--main-color);
     background: transparent;
 
     transition: 0.5s;
+    resize: none;
+    overflow: hidden;
 }
 
-.item_center{
+.item::placeholder{
     font-size: 1.2em;
     font-weight: bold;
     color: var(--main-color);
@@ -23,14 +26,13 @@
 .item:hover,
 .item:focus{
     outline: none;
-    /*background: linear-gradient(to top, var(--secondary-color), var(--main-color), var(--secondary-color));*/
-    /*box-shadow: inset 0 0 5px 2px var(--bg-secondary-color);*/
+}
+
+
+.item:focus::placeholder{
+    opacity: 0;
 }
 
 .item:first-letter{
     text-transform: uppercase;
-}
-
-.item::placeholder{
-    color: var(--main-color);
 }

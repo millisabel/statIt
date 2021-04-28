@@ -3,43 +3,43 @@ import comment from "./comment.module.css";
 
 const Comment = (props) => {
     const initComment = 'Feedback';
-    const[userComment, setComment] = useState(initComment);
+    const[userComment, setComment] = useState('');
+    const[rowsLength, setRowsLength] = useState(1);
+    const cols = 28;
+    const max = 200;
 
     const handleOut = (e) => {
-        setComment(e.target.innerText);
+        setComment(e.target.value);
         return userComment;
     };
 
-    const handleClick = (e) => {
-        if(e.target.innerText === initComment){
+    const handleKeyDown = (e) => {
+        if(e.keyCode === 46){
+            setRowsLength(1);
             setComment('');
         }
-    };
-
-    const handleBlur = (e) => {
-        if(e.target.innerText === ''){
-            setComment(initComment);
+        if (e.target.value.length % cols === 0 && e.target.value.length < max && e.target.value.length >= cols) {
+            if(e.keyCode === 8){
+                setRowsLength(rowsLength - 1);
+            } else{
+                setRowsLength(rowsLength + 1);
+            }
         }
         return e.target.innerText;
     };
 
-    const handleKeyPress = (e) => {
-        if(e.target.innerText.length > 10){
-            e.preventDefault();
-        }
-    };
-
-
     return (
-        <div
-            className={`${comment.item} ${userComment === initComment? comment.item_center : null}`}
-            contentEditable={true}
-            onClick = {handleClick}
-            onBlur={(e) => props.onClick(handleBlur(e))}
+        <textarea
+            title='max-length 200 char'
+            placeholder={initComment}
+            maxLength={max}
+            cols={cols}
+            rows={rowsLength}
+            value={userComment}
+            className={comment.item}
             onChange={(e) => props.onClick(handleOut(e))}
-            onKeyPress={(e) => props.onClick(handleKeyPress(e))}
-            suppressContentEditableWarning={true}
-        >{userComment}</div>
+            onKeyDown = {(e) => props.onClick(handleKeyDown(e))}
+        />
     );
 };
 
