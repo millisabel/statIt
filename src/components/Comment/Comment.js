@@ -5,7 +5,7 @@ const Comment = (props) => {
     const initComment = 'Feedback';
     const[userComment, setComment] = useState('');
     const[rowsLength, setRowsLength] = useState(1);
-    const cols = 28;
+    const cols = 38;
     const max = 200;
 
     const handleOut = (e) => {
