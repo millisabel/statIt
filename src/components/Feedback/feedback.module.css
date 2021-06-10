@@ -9,12 +9,17 @@
 .stars{
     display: flex;
     align-items: center;
-    min-height: 100px;
-    padding: 5px;
+    min-height: 65px;
+    padding: 2px;
     margin: 0 auto;
 }
 
 .stars>span{
     line-height: 1em;
+    transition: 0.5s;
+}
+
+.stars>span:hover{
+    transform: scale(1.2);
 }
 

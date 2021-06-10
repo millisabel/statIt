@@ -7,16 +7,16 @@ const About = (props) => {
         <div className={about.container}>
             <div className={about.item}>
                 <p>
-                    <span className={about.title}>Name: </span>
-                    <span>{props.businessName}</span>
+                    {/*<span className={about.title}>Name: </span>*/}
+                    <span className={about.title}>{props.businessName}</span>
                 </p>
                 <p>
-                    <span className={about.title}>Address: </span>
-                    <span>{props.businessAddress}</span>
+                    {/*<span className={about.title}>Address: </span>*/}
+                    <span className={about.title}>{props.businessAddress}</span>
                 </p>
                 <p>
-                    <span className={about.title}>Ticket window: </span>
-                    <span>№ {props.businessPoint}</span>
+                    {/*<span className={about.title}>Ticket window: </span>*/}
+                    <span className={about.title}>ticket № {props.businessPoint}</span>
                 </p>
             </div>
             <div className={about.item}>

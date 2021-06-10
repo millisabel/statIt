@@ -1,12 +1,21 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 20px;
 
-    padding: 15px 20px 30px;
+.container{
+    padding: 10px 20px 30px;
     min-height: 80vh;
 }
+
+@supports (display: flex) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 15px;
+
+        padding: 10px 20px 30px;
+        min-height: 80vh;
+    }
+}
+
 
 div[aria-label="add rating by typing an integer from 0 to 5 or pressing arrow keys"]:focus{
     outline: none !important;

@@ -14,9 +14,8 @@ const Feedback = (props) => {
                 classNames={feedback.stars}
                 count={5}
                 value={props.userRating}
-                size={75}
+                size={65}
                 edit={true}
-                isHalf={true}
                 activeColor="#FFBB1F"
                 onChange={(newValue)=>props.changeRating(newValue)}
             />

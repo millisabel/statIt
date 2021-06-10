@@ -1,15 +1,24 @@
 .box{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+}
+
+@supports not (gap: 10px) {
+    .box{
+        margin-bottom: 10px;
+    }
 }
 
 .mess{
+    padding-bottom: 5px;
+
     text-align: center;
     color: var(--main-color);
 }
 
 .mess__error{
+    padding-bottom: 5px;
+
     text-align: center;
     color: red;
 }
@@ -27,6 +36,12 @@
     justify-content: center;
     align-items: flex-start;
     gap: 15px;
+}
+
+@supports not (gap: 15px) {
+    .container{
+        margin: 0 7px;
+    }
 }
 
 .preview_item {
@@ -100,7 +115,7 @@
     margin: 0 auto;
     border: none;
 
-    background: url("../ico/add-file.svg");
+    background: url("ico/add-file.svg");
     background-size: cover;
 
     transform: scale(0.6);

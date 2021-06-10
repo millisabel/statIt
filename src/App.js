@@ -13,8 +13,6 @@ import Profile from "./components/Profile/Profile";
 import Statics from "./components/Statics/Statics";
 
 import './assets/style/layout/layout.css';
-import scanner from "./components/Scanner/Scanner.module.css";
-import TestLinks from "./components/TestLinks/TestLinks";
 
 function App() {
     return (
