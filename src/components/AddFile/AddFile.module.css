@@ -136,9 +136,16 @@
     transform: scale(0.6);
 }
 
-/*.boxForBtn {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: flex-start;*/
-/*}*/
+.active{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    z-index: 100;
+
+    min-width: 90%;
+    height: auto;
+
+    box-shadow: 0 0 30px 5px;
+}
 

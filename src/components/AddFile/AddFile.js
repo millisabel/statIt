@@ -35,6 +35,15 @@ const AddFile = (props) => {
         }
     };
 
+    const showImg = (e) => {
+        if(e.target.classList.contains(file.active)){
+            e.target.classList.remove(file.active);
+        }
+        else{
+            e.target.classList.add(file.active);
+        }
+    };
+
     return (
         <div>
             <ImageUploading
@@ -61,7 +70,7 @@ const AddFile = (props) => {
                         <div className={file.preview}>
                             {imageList.map((image, index) => (
                                 <div key={index} className={file.preview_item}>
-                                    <img className={file.preview_img} src={image['data_url']} alt={index} />
+                                    <img className={file.preview_img} src={image['data_url']} alt={index} onClick={showImg}/>
                                     <button className={file.preview_btn} onClick={() => onImageRemove(index)}>
                                         <span className={file.preview_remove}/>
                                     </button>
