@@ -9,6 +9,13 @@ const Comment = (props) => {
 
     const handleOut = (e) => {
         setComment(e.target.value);
+        if(e.target.value.length >=1 && e.target.value.length < 4){
+            e.target.style.color='red';
+        }
+        else{
+            e.target.style.color='inherit';
+        }
+
         if(e.target.value.length === 200){
             setMess('maximum number of characters');
         }
@@ -18,6 +25,7 @@ const Comment = (props) => {
         else{
             setMess('min 3 - max 200 characters');
         }
+
         return e.target.value;
     };
 

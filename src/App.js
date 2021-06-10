@@ -22,9 +22,9 @@ function App() {
                 <Nav/>
                 <Switch>
                     <Redirect push from="/statIt"  to="/info"/>
-                    <Route path="/statics" component={Profile} />
+                    <Route path="/statics" component={Statics} />
                     <Route path="/info" component={Scanner} />
-                    <Route path="/profile" component={Statics} />
+                    <Route path="/profile" component={Profile} />
                 </Switch>
             </div>
         </Router>
