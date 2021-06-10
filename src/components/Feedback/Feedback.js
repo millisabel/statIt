@@ -20,7 +20,9 @@ const Feedback = (props) => {
                 activeColor="#FFBB1F"
                 onChange={(newValue)=>props.changeRating(newValue)}
             />
-            <AddFile/>
+            <AddFile
+                onChange={(newValue)=>props.isImg(newValue)}
+            />
             <Comment
                 comment = {props.comment}
                 onClick = {props.onClick}

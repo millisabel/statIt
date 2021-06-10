@@ -4,7 +4,24 @@ import {Link} from "react-router-dom";
 import send from "./send.module.css";
 
 const Send = (props) => {
+
+    function sendRequest(url, body){
+        return fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json;charset=utf-8'},
+            body: JSON.stringify(body),
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error("HTTP error " + response.status);
+            }
+            return response.json();
+        })
+    }
+
     function handleSubmit() {
+
+        const requestURL = 'https://jsonplaceholder.typicode.com/users';
+
         const data = {
             businessId: props.businessId,
             pointerId: props.pointerId,
@@ -13,10 +30,20 @@ const Send = (props) => {
             rating: props.rating,
             comment: props.comment,
             answer: props.answer,
+            img: getImg(props.img),
         };
-        console.log(data);
-        console.log(JSON.stringify(data));
+        sendRequest(requestURL, data)
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
     }
+
+    const getImg = (arr) => {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            newArr.push(arr[i].data_url);
+        }
+        return newArr;
+    };
 
     return (
         <Link

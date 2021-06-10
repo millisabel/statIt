@@ -3,7 +3,7 @@ import React from 'react';
 import file from "./AddFile.module.css";
 import ImageUploading from 'react-images-uploading';
 
-const AddFile = () => {
+const AddFile = (props) => {
     const [images, setImages] = React.useState([]);
     const [disabled, setDisabled] = React.useState(false);
     const [mess, setMess] = React.useState('');
@@ -25,6 +25,7 @@ const AddFile = () => {
             setMess('you can add 3 files');
             setErrorClass(file.mess);
         }
+        return imageList;
     };
 
     const onError = (errors) => {
@@ -39,7 +40,7 @@ const AddFile = () => {
             <ImageUploading
                 multiple
                 value={images}
-                onChange={onChange}
+                onChange={(e) => props.onChange(onChange(e))}
                 onError={onError}
                 maxNumber={maxNumber}
                 dataURLKey="data_url"

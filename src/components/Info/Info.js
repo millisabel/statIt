@@ -73,12 +73,13 @@ const Info = (props) => {
     const [answer, setAnswer] = useState(null);
     const [rating, setRating] = useState(5);
     const [color, setColor] = useState(data[businessId].color);
+    const [img, setImg] = useState([]);
 
     if(!color){
         setColor('130, 160, 220');
     }
-    document.documentElement.style.setProperty('--rgb-dark-blue', color);
 
+    document.documentElement.style.setProperty('--rgb-dark-blue', color);
 
     const userComment = (newComment) => {
         setComment(newComment);
@@ -90,6 +91,10 @@ const Info = (props) => {
 
     const ratingChanged = (newRating) => {
         setRating(newRating);
+    };
+
+    const userImg = (newImg) => {
+        setImg(newImg);
     };
 
     return (
@@ -105,6 +110,7 @@ const Info = (props) => {
                       comment={comment}
                       onClick={userComment}
                       isAnswer={userAnswer}
+                      isImg={userImg}
                       userRating={rating}
                       changeRating={ratingChanged}
             />
@@ -112,6 +118,7 @@ const Info = (props) => {
                 businessId={businessId}
                 pointerId={pointerId}
                 rating={rating}
+                img={img}
                 comment={comment}
                 answer={answer}
                 logo={logo}
