@@ -1,4 +1,8 @@
-.item{
+.box{
+    width: 100%;
+}
+
+.text{
     display: block;
     width: 100%;
     height: auto;
@@ -16,23 +20,32 @@
     overflow: hidden;
 }
 
-.item::placeholder{
+.text::placeholder{
     font-size: 1.2em;
     font-weight: bold;
     color: var(--main-color);
     text-align: center;
 }
 
-.item:hover,
-.item:focus{
+.text:hover,
+.text:focus{
     outline: none;
 }
 
 
-.item:focus::placeholder{
+.text:focus::placeholder{
     opacity: 0;
 }
 
-.item:first-letter{
+.text:first-letter{
     text-transform: uppercase;
 }
+
+.mess{
+    width: 50%;
+    margin: 0 auto;
+
+    text-align: center;
+    font-size: calc(var(--text-size) * 0.7);
+}
+
