@@ -55,3 +55,9 @@
     filter: drop-shadow(0 0 2px rgba(var(--rgb-white), 0.5));
 }
 
+.item[disabled]{
+    opacity: 0.2;
+    cursor: default;
+    pointer-events: none;
+}
+

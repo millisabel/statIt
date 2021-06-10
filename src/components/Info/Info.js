@@ -69,11 +69,12 @@ const Info = (props) => {
     const logo = data[businessId].logo;
     const address = data[businessId].points[pointerId].address;
     const point = data[businessId].points[pointerId].id;
-    const [comment, setComment] = useState(null);
+    const [comment, setComment] = useState('');
     const [answer, setAnswer] = useState(null);
-    const [rating, setRating] = useState(5);
+    const [rating, setRating] = useState(0);
     const [color, setColor] = useState(data[businessId].color);
     const [img, setImg] = useState([]);
+    const [disabled, setDisabled] = useState(true);
 
     if(!color){
         setColor('130, 160, 220');
@@ -83,6 +84,12 @@ const Info = (props) => {
 
     const userComment = (newComment) => {
         setComment(newComment);
+        if(newComment.length >= 1 && newComment.length < 4){
+            setDisabled(true);
+        }
+        else if(rating){
+            setDisabled(false);
+        }
     };
 
     const userAnswer = (bool) => {
@@ -91,6 +98,12 @@ const Info = (props) => {
 
     const ratingChanged = (newRating) => {
         setRating(newRating);
+        if(newRating && (comment.length < 1 || comment.length > 4 )){
+            setDisabled(false);
+        }
+        else{
+            setDisabled(true);
+        }
     };
 
     const userImg = (newImg) => {
@@ -123,7 +136,11 @@ const Info = (props) => {
                 answer={answer}
                 logo={logo}
                 name={business}
+                disabled={disabled}
             />
+            <div>
+
+            </div>
         </div>
     );
 };

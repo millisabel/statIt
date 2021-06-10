@@ -4,7 +4,7 @@ import TextareaAutosize from 'react-autosize-textarea';
 
 const Comment = (props) => {
     const initComment = 'Feedback';
-    const[userComment, setComment] = useState('');
+    const[userComment, setComment] = useState(props.comment);
     const[mess, setMess] = useState('');
 
     const handleOut = (e) => {
@@ -18,7 +18,7 @@ const Comment = (props) => {
         else{
             setMess('min 3 - max 200 characters');
         }
-        return userComment;
+        return e.target.value;
     };
 
     return (

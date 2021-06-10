@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 
 import send from "./send.module.css";
 
+const requestURL = 'https://jsonplaceholder.typicode.com/users';
+
 const Send = (props) => {
 
     function sendRequest(url, body){
@@ -19,8 +21,6 @@ const Send = (props) => {
     }
 
     function handleSubmit() {
-
-        const requestURL = 'https://jsonplaceholder.typicode.com/users';
 
         const data = {
             businessId: props.businessId,
@@ -58,6 +58,7 @@ const Send = (props) => {
             className={send.item}
             name="send"
             onClick={handleSubmit}
+            disabled={props.disabled}
         >
             Send
             <svg xmlns="http://www.w3.org/2000/svg"
