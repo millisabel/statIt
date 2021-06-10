@@ -1,8 +1,32 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mess{
+    text-align: center;
+    color: var(--main-color);
+}
+
+.mess__error{
+    text-align: center;
+    color: red;
+}
+
+.mess:first-letter{
+    text-transform: uppercase;
+}
+
+.mess__error:first-letter{
+    text-transform: uppercase;
+}
+
 .preview {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 10px;
+    gap: 15px;
 }
 
 .preview_item {
@@ -17,7 +41,7 @@
 }
 
 .preview_img {
-    width: 100px;
+    max-width: 100px;
     height: 130px;
     background-size: cover;
 }
@@ -69,13 +93,14 @@
     transform: rotate(-45deg);
 }
 
-
 .btnAdd {
+    display: block;
     width: 50px;
     height: 50px;
+    margin: 0 auto;
     border: none;
 
-    background: url("../ico/add-photo.svg");
+    background: url("../ico/add-file.svg");
     background-size: cover;
 
     transform: scale(0.6);
@@ -87,9 +112,18 @@
     transform: scale(1);
 }
 
-.boxForBtn {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+.btnAdd[disabled] {
+    opacity: 0.3;
 }
+
+.btnAdd[disabled]:hover {
+    cursor: default;
+    transform: scale(0.6);
+}
+
+/*.boxForBtn {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: flex-start;*/
+/*}*/
 

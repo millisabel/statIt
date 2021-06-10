@@ -8,7 +8,6 @@ import ReactStars from "react-rating-stars-component";
 import feedback from "../Feedback/feedback.module.css";
 
 const Feedback = (props) => {
-
     return (
         <div className={feedback.container}>
             <ReactStars
@@ -21,6 +20,7 @@ const Feedback = (props) => {
                 activeColor="#FFBB1F"
                 onChange={(newValue)=>props.changeRating(newValue)}
             />
+            <AddFile/>
             <Comment
                 comment = {props.comment}
                 onClick = {props.onClick}
@@ -28,7 +28,6 @@ const Feedback = (props) => {
             <Answer
                 isAnswer = {props.isAnswer}
             />
-            <AddFile/>
         </div>
     );
 };
