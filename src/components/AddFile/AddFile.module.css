@@ -1,0 +1,112 @@
+.preview {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.preview_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 100px;
+
+    box-shadow: 0 0 5px;
+}
+
+.preview_img {
+    width: 100px;
+    height: 130px;
+    background-size: cover;
+}
+
+.preview_btn{
+    width: 100px;
+    border: none;
+    background: var(--main-color);
+    opacity: 0.3;
+    transition: 0.5s;
+}
+
+.preview_btn:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.preview_remove {
+    position: relative;
+
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    transition: 0.5s;
+}
+
+.preview_remove::before,
+.preview_remove::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+
+    width: 2px;
+    height: 25px;
+
+    background: white;
+}
+
+.preview_remove::before {
+    transform: rotate(45deg);
+}
+
+.preview_remove::after {
+    transform: rotate(-45deg);
+}
+
+
+.btnAdd {
+    width: 50px;
+    height: 50px;
+    border: none;
+
+    background: url("../ico/add-file.svg");
+    background-size: cover;
+
+    transform: scale(0.6);
+    transition: 0.5s;
+}
+
+.btnAdd:hover {
+    cursor: pointer;
+    transform: scale(1);
+}
+
+.btnAddPhoto {
+    width: 50px;
+    height: 50px;
+    border: none;
+
+    background: url("../ico/add-photo.svg");
+    background-size: cover;
+
+    transform: scale(0.6);
+    transition: 0.5s;
+}
+
+.btnAddPhoto:hover {
+    cursor: pointer;
+    transform: scale(1);
+}
+
+.boxForBtn {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
