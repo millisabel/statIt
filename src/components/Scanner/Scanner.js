@@ -25,7 +25,6 @@ const Scanner = () => {
                     <NoMatch/>
                 </Route>
             </Switch>
-
         </div>
     );
 };

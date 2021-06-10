@@ -1,8 +1,11 @@
 import React  from 'react';
-import feedback from "../Feedback/feedback.module.css";
 import Comment from "../Comment/Comment";
 import Answer from "../Answer/Answer";
+import AddFile from "../AddFile/AddFile";
+
 import ReactStars from "react-rating-stars-component";
+
+import feedback from "../Feedback/feedback.module.css";
 
 const Feedback = (props) => {
 
@@ -25,6 +28,7 @@ const Feedback = (props) => {
             <Answer
                 isAnswer = {props.isAnswer}
             />
+            <AddFile/>
         </div>
     );
 };
