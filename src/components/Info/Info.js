@@ -70,7 +70,7 @@ const Info = (props) => {
     const address = data[businessId].points[pointerId].address;
     const point = data[businessId].points[pointerId].id;
     const [comment, setComment] = useState('');
-    const [answer, setAnswer] = useState(null);
+    const [answer, setAnswer] = useState(false);
     const [rating, setRating] = useState(0);
     const [color, setColor] = useState(data[businessId].color);
     const [img, setImg] = useState([]);
@@ -126,6 +126,7 @@ const Info = (props) => {
                       isImg={userImg}
                       userRating={rating}
                       changeRating={ratingChanged}
+                      img={img}
             />
             <Send
                 businessId={businessId}
