@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {withRouter} from "react-router-dom";
 
 import Send from "../Send/Send";
@@ -7,80 +7,60 @@ import Time from "../Time/Time";
 import About from "../About/About";
 import info from "../Info/info.module.css";
 
-const data = [
-    {
-        "id": 1,
-        "name": "Silpo",
-        "logo": "assets/Silpo",
-        "color": "255, 106, 0",
-        "points": [
-            {
-                "id": 1,
-                "address": "Odessa, Str.Bulgakov, 11"
-            },
-            {
-                "id": 2,
-                "address": "Poltava, Str.Bulgakov, 11"
-            },
-            {
-                "id": 3,
-                "address": "Kuiv, Str.Bulgakov, 11"
-            }
-        ]
-    },
-    {
-        "id": 2,
-        "name": "ATB",
-        "logo": "./assets/ATB.svg",
-        "color": "37, 107, 177",
-        "points": [
-            {
-                "id": 4,
-                "address": "Lvov, Str.Bulgakov, 11"
-            },
-            {
-                "id": 5,
-                "address": "Toretsk, Str.Bulgakov, 11"
-            }
-        ]
-    },
-    {
-        "id": 3,
-        "name": "Eva",
-        "logo": "/assets/Eva.png",
-        "color": "115, 192, 66",
-        "points": [
-            {
-                "id": 6,
-                "address": "Kramatorsk, Str.Bulgakov, 11"
-            },
-            {
-                "id": 7,
-                "address": "Slavansk, Str.Bulgakov, 11"
-            }
-        ]
-    }
-];
-
 const Info = (props) => {
     const businessId = props.match.params.businessId;
     const pointerId = props.match.params.pointerId;
-    const business = data[businessId].name;
-    const logo = data[businessId].logo;
-    const address = data[businessId].points[pointerId].address;
-    const point = data[businessId].points[pointerId].id;
+
+    const businessURL=`https://starit-api.herokuapp.com/api/business/${businessId}`;
+    const pointerURL=`https://starit-api.herokuapp.com/api/fbo/${pointerId}`;
+
+    const [business, setBusiness] = useState(null);
+    const [address, setAddress] = useState(null);
+    const [point, setPoint] = useState(null);
+    const [logo, setLogo] = useState(null);
     const [comment, setComment] = useState('');
     const [answer, setAnswer] = useState(false);
     const [rating, setRating] = useState(0);
-    const [color, setColor] = useState(data[businessId].color);
     const [img, setImg] = useState([]);
     const [disabled, setDisabled] = useState(true);
 
-    if(!color){
-        setColor('130, 160, 220');
+    function sendRequest(url1, url2){
+        return Promise.all([
+            fetch(url1).then(value => value.json()),
+            fetch(url2).then(value => value.json())
+        ])
     }
 
-    document.documentElement.style.setProperty('--rgb-dark-blue', color);
+    useEffect(() => {
+        let error = (bool) => {
+            return bool;
+        };
+        let loading = (bool) => {
+            return bool;
+        };
+        loading(true);
+
+        sendRequest(businessURL, pointerURL)
+            .then(value => {
+                console.log(value);
+                loading(false);
+                error(false);
+                const business = value[0];
+                const point = value[1];
+                setBusiness(business[0].name);
+                setLogo(business[0].logo);
+                if(point[0]){
+                    setAddress(point[0].object_address);
+                    setPoint(point[0].object_name);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                loading(false);
+                error(true);
+            });
+
+    }, []);
 
     const userComment = (newComment) => {
         setComment(newComment);
@@ -111,7 +91,7 @@ const Info = (props) => {
     };
 
     return (
-        <div className={info.container} defaultValue={color}>
+        <div className={info.container}>
             <About
                 businessName={business}
                 businessAddress={address}

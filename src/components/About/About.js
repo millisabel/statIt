@@ -16,14 +16,14 @@ const About = (props) => {
                 </p>
                 <p>
                     {/*<span className={about.title}>Ticket window: </span>*/}
-                    <span className={about.title}>ticket № {props.businessPoint}</span>
+                    <span className={about.title}>{props.businessPoint}</span>
                 </p>
             </div>
             <div className={about.item}>
                 <Image
                     src = {`${props.logo}`}
-                    name = {`${props.businessName}`}
-                    alt = "logo"
+                    // name = {`${props.businessName}`}
+                    alt = {`${props.logo}`}
                 />
             </div>
         </div>

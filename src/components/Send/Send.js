@@ -6,6 +6,7 @@ import send from "./send.module.css";
 const requestURL = 'https://jsonplaceholder.typicode.com/users';
 
 const Send = (props) => {
+    // let  requestURL = 'https://starit-api.herokuapp.com/api/fbo/'+props.pointerId;
 
     function sendRequest(url, body){
         return fetch(url, {
@@ -30,29 +31,30 @@ const Send = (props) => {
             rating: props.rating,
             comment: props.comment,
             answer: props.answer,
-            img: getImg(props.img),
+            // img: getImg(props.img),
         };
+
         sendRequest(requestURL, data)
             .then(data => console.log(data))
             .catch(err => console.log(err));
     }
 
-    const getImg = (arr) => {
-        let newArr = [];
-        for (let i = 0; i < arr.length; i++) {
-            newArr.push(arr[i].data_url);
-        }
-        return newArr;
-    };
+    // const getImg = (arr) => {
+    //     let newArr = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         newArr.push(arr[i].data_url);
+    //     }
+    //     return newArr;
+    // };
 
     return (
         <Link
             to={{
-                pathname: "/info/thanks",
+                pathname: "/api/thanks",
                 state: {
                     rating: props.rating,
                     logo: props.logo,
-                    name: props.name
+                    name: props.name,
                 },
             }}
             className={send.item}

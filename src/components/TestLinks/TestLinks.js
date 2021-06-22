@@ -7,25 +7,22 @@ const TestLinks = () => {
     return (
         <ul className={links.list}>
             <li className={links.item}>
-                <Link to="info/1/0">ATB 1</Link>
+                <Link to="api/1/1">Continental Hotel 1</Link>
             </li>
             <li className={links.item}>
-                <Link to="info/1/1">ATB 2</Link>
+                <Link to="api/1/2">Continental Hotel 2</Link>
             </li>
             <li className={links.item}>
-                <Link to="info/2/0">Eva 1</Link>
+                <Link to="api/2/3">ATB 1</Link>
             </li>
             <li className={links.item}>
-                <Link to="info/2/1">Eva 2</Link>
+                <Link to="api/2/4">ATB 2</Link>
             </li>
             <li className={links.item}>
-                <Link to="info/0/0">Silpo 1</Link>
+                <Link to="api/3/0">Silpo</Link>
             </li>
             <li className={links.item}>
-                <Link to="info/0/1">Silpo 2</Link>
-            </li>
-            <li className={links.item}>
-                <Link to="info/0/2">Silpo 3</Link>
+                <Link to="api/4/0">Comfy</Link>
             </li>
             {/*<li className={links.item}>*/}
             {/*    <Link to="info/2/21">ошибка</Link>*/}

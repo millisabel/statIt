@@ -11,14 +11,14 @@ const Scanner = () => {
     return (
         <div className={scanner.wrap}>
             <Switch>
-                <Route exact path="/info">
+                <Route exact path="/api">
                     <p className={scanner.text}>Временный блок, эмуляция сканера</p>
                     <TestLinks/>
                 </Route>
-                <Route path="/info/:businessId/:pointerId">
+                <Route path="/api/:businessId/:pointerId">
                     <InfoWithRouter/>
                 </Route>
-                <Route path="/info/thanks">
+                <Route path="/api/thanks">
                     <ThanksWithRouter/>
                 </Route>
                 <Route>
