@@ -42,7 +42,6 @@ const Info = (props) => {
 
         sendRequest(businessURL, pointerURL)
             .then(value => {
-                console.log(value);
                 loading(false);
                 error(false);
                 const business = value[0];
@@ -55,7 +54,6 @@ const Info = (props) => {
                 }
             })
             .catch(err => {
-                console.log(err);
                 loading(false);
                 error(true);
             });
