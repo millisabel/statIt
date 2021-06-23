@@ -70,8 +70,8 @@ const Info = (props) => {
         }
     };
 
-    const userAnswer = (bool) => {
-        setAnswer(bool);
+    const userAnswer = (e) => {
+        setAnswer(e.target.checked);
     };
 
     const ratingChanged = (newRating) => {
@@ -101,6 +101,7 @@ const Info = (props) => {
                       comment={comment}
                       onClick={userComment}
                       isAnswer={userAnswer}
+                      answer={answer}
                       isImg={userImg}
                       userRating={rating}
                       changeRating={ratingChanged}

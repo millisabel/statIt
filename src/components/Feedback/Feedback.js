@@ -43,6 +43,7 @@ const Feedback = (props) => {
             />
             <Answer
                 isAnswer = {props.isAnswer}
+                answerValue = {props.answer}
             />
         </div>
     );

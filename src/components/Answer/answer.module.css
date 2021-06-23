@@ -3,7 +3,6 @@
     position: relative;
 
     padding-right: 25px;
-    margin-right: 10px;
 }
 
 .item::before{
@@ -64,7 +63,7 @@
     font-style: italic;
 
     color: var(--main-color);
-    
+
     user-select: none;
 }
 
