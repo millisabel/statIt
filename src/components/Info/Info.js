@@ -11,14 +11,16 @@ const Info = (props) => {
     const businessId = props.match.params.businessId;
     const pointerId = props.match.params.pointerId;
 
-    const businessURL=`https://starit-api.herokuapp.com/api/business/${businessId}`;
-    const pointerURL=`https://starit-api.herokuapp.com/api/fbo/${pointerId}`;
+    const businessURL='';
+    const pointerURL='';
+    // const businessURL=`https://starit-api.herokuapp.com/api/business/${businessId}`;
+    // const pointerURL=`https://starit-api.herokuapp.com/api/fbo/${pointerId}`;
 
     const [business, setBusiness] = useState(null);
     const [address, setAddress] = useState(null);
     const [point, setPoint] = useState(null);
     const [logo, setLogo] = useState(null);
-    const [comment, setComment] = useState('');
+    const [userComment, setComment] = useState('');
     const [answer, setAnswer] = useState(false);
     const [rating, setRating] = useState(0);
     const [img, setImg] = useState([]);
@@ -60,9 +62,9 @@ const Info = (props) => {
 
     }, []);
 
-    const userComment = (newComment) => {
-        setComment(newComment);
-        if(newComment.length >= 1 && newComment.length < 4){
+    const setUserComment = (e) => {
+        setComment(e.target.value);
+        if(e.target.value.length >= 1 && e.target.value.length < 4){
             setDisabled(true);
         }
         else if(rating){
@@ -76,7 +78,7 @@ const Info = (props) => {
 
     const ratingChanged = (newRating) => {
         setRating(newRating);
-        if(newRating && (comment.length < 1 || comment.length > 4 )){
+        if(newRating && (userComment.length < 1 || userComment.length > 4 )){
             setDisabled(false);
         }
         else{
@@ -98,8 +100,8 @@ const Info = (props) => {
             />
             <Time/>
             <Feedback value=''
-                      comment={comment}
-                      onClick={userComment}
+                      userComment={userComment}
+                      setUserComment={setUserComment}
                       isAnswer={userAnswer}
                       answer={answer}
                       isImg={userImg}
@@ -112,7 +114,7 @@ const Info = (props) => {
                 pointerId={pointerId}
                 rating={rating}
                 img={img}
-                comment={comment}
+                comment={userComment}
                 answer={answer}
                 logo={logo}
                 name={business}

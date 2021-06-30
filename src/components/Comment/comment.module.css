@@ -20,6 +20,10 @@
     overflow: hidden;
 }
 
+.text__warning{
+    color: var(--warning);
+}
+
 .text::placeholder{
     font-size: 1.2em;
     font-weight: bold;

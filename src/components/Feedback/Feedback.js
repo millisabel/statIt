@@ -38,8 +38,8 @@ const Feedback = (props) => {
                 onChange={(newValue)=>props.isImg(newValue)}
             />
             <Comment
-                comment = {props.comment}
-                onClick = {props.onClick}
+                userComment = {props.userComment}
+                setUserComment = {props.setUserComment}
             />
             <Answer
                 isAnswer = {props.isAnswer}

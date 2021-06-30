@@ -1,45 +1,36 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import comment from "./comment.module.css";
 import TextareaAutosize from 'react-autosize-textarea';
 
-const Comment = (props) => {
-    const initComment = 'Feedback';
-    const[userComment, setComment] = useState(props.comment);
-    const[mess, setMess] = useState('');
+const Comment = ({userComment, setUserComment}) => {
+    const placeholder = 'Feedback';
+    const title = 'max-length 200 char';
+    const [mess, setMess] = useState('');
 
-    const handleOut = (e) => {
-        setComment(e.target.value);
-        if(e.target.value.length >=1 && e.target.value.length < 4){
-            setMess(`minimum length 3 characters`);
-            e.target.style.color='red';
-        }
-        else if(e.target.value.length === 200){
-            e.target.style.color='inherit';
+    useEffect(() => {
+        if (userComment.length >= 1 && userComment.length < 4) {
+            setMess(`min 3 / max 200 characters`);
+        } else if (userComment.length === 200) {
             setMess('maximum number of characters');
-        }
-        else if(!e.target.value.length){
+        } else if (!userComment.length) {
             setMess('');
+        } else if (userComment.length >= 4 && userComment.length < 200){
+            setMess(`${userComment.length} / 200`);
         }
-        else{
-            e.target.style.color='inherit';
-            setMess(`${e.target.value.length} / 200`);
-        }
-
-        return e.target.value;
-    };
+    });
 
     return (
         <div className={comment.box}>
             <TextareaAutosize
-                title='max-length 200 char'
-                placeholder={initComment}
+                title={title}
+                placeholder={placeholder}
                 maxLength={200}
                 rows={1}
                 value={userComment}
-                className={comment.text}
-                onChange={(e) => props.onClick(handleOut(e))}
+                className={comment.text + ' ' + (userComment.length < 4 ? comment.text__warning : '')}
+                onChange={setUserComment}
             />
-            <p className={comment.mess}>{mess}</p>
+            <p className={comment.mess} data-testid="mess">{mess}</p>
         </div>
     );
 };

@@ -10,6 +10,7 @@
     --main-color: rgb(var(--rgb-dark-blue));
     --secondary-color: rgb(var(--rgb-light-blue));
     --other-color: rgb(var(--rgb-orange));
+    --warning: darkred;
 
     --text-color: #333;
     --text-size: 14px;
