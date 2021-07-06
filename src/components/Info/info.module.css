@@ -22,3 +22,9 @@ div[aria-label="add rating by typing an integer from 0 to 5 or pressing arrow ke
     outline: none !important;
 }
 
+.mess__error{
+    font-size: 0.8em;
+    text-align: center;
+    color: var(--warning);
+}
+

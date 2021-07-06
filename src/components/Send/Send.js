@@ -24,14 +24,15 @@ const Send = (props) => {
     function handleSubmit() {
 
         const data = {
-            businessId: props.businessId,
-            pointerId: props.pointerId,
-            data: new Date().toLocaleDateString(),
+            id: props.businessId,
+            fbo_id: props.pointerId,
+            date: new Date().toLocaleDateString(),
             time: new Date().toLocaleTimeString(),
-            rating: props.rating,
+            stars: props.rating,
             comment: props.comment,
-            answer: props.answer,
-            img: getImg(props.img),
+            reaction_needed: props.answer,
+            // img: getImg(props.img),
+            customer_id: 1
         };
 
         sendRequest(requestURL, data)

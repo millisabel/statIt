@@ -6,15 +6,19 @@ import Feedback from "../Feedback/Feedback";
 import Time from "../Time/Time";
 import About from "../About/About";
 import info from "../Info/info.module.css";
+import ReactStars from "react-rating-stars-component";
+import feedback from "../Feedback/feedback.module.css";
+import answer from "../Answer/answer.module.css";
 
 const Info = (props) => {
     const businessId = props.match.params.businessId;
     const pointerId = props.match.params.pointerId;
+    const minComment = 3;
 
-    const businessURL='';
-    const pointerURL='';
-    // const businessURL=`https://starit-api.herokuapp.com/api/business/${businessId}`;
-    // const pointerURL=`https://starit-api.herokuapp.com/api/fbo/${pointerId}`;
+    // const businessURL='';
+    // const pointerURL='';
+    const businessURL=`https://starit-api.herokuapp.com/api/business/${businessId}`;
+    const pointerURL=`https://starit-api.herokuapp.com/api/fbo/${pointerId}`;
 
     const [business, setBusiness] = useState(null);
     const [address, setAddress] = useState(null);
@@ -24,7 +28,7 @@ const Info = (props) => {
     const [answer, setAnswer] = useState(false);
     const [rating, setRating] = useState(0);
     const [img, setImg] = useState([]);
-    const [disabled, setDisabled] = useState(true);
+    const [mess, setMess] = useState('To send a message, select a rating');
 
     function sendRequest(url1, url2){
         return Promise.all([
@@ -62,14 +66,12 @@ const Info = (props) => {
 
     }, []);
 
+    useEffect(()=>{
+        rating ? setMess('') : setMess('To send a message, select a rating');
+    }, []);
+
     const setUserComment = (e) => {
         setComment(e.target.value);
-        if(e.target.value.length >= 1 && e.target.value.length < 4){
-            setDisabled(true);
-        }
-        else if(rating){
-            setDisabled(false);
-        }
     };
 
     const userAnswer = (e) => {
@@ -78,16 +80,14 @@ const Info = (props) => {
 
     const ratingChanged = (newRating) => {
         setRating(newRating);
-        if(newRating && (userComment.length < 1 || userComment.length > 4 )){
-            setDisabled(false);
-        }
-        else{
-            setDisabled(true);
-        }
     };
 
     const userImg = (newImg) => {
         setImg(newImg);
+    };
+
+    const isDisabled = () => {
+        return !rating && (userComment.length > 1 || userComment.length <= minComment);
     };
 
     return (
@@ -102,12 +102,13 @@ const Info = (props) => {
             <Feedback value=''
                       userComment={userComment}
                       setUserComment={setUserComment}
+                      minComment={minComment}
                       isAnswer={userAnswer}
                       answer={answer}
                       isImg={userImg}
+                      img={img}
                       userRating={rating}
                       changeRating={ratingChanged}
-                      img={img}
             />
             <Send
                 businessId={businessId}
@@ -118,11 +119,9 @@ const Info = (props) => {
                 answer={answer}
                 logo={logo}
                 name={business}
-                disabled={disabled}
+                disabled={isDisabled()}
             />
-            <div>
-
-            </div>
+            <p className={info.mess__error}>{mess}</p>
         </div>
     );
 };

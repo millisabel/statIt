@@ -8,20 +8,6 @@ import ReactStars from "react-rating-stars-component";
 import feedback from "../Feedback/feedback.module.css";
 
 const Feedback = (props) => {
-    const [mess, setMess] = useState('');
-
-    useEffect(() => {
-        if(props.userRating){
-            setMess('');
-        }
-        else{
-            if((props.comment && props.comment.length>0) || (props.img && props.img.length>0)){
-                setMess('To send a message, select a rating')
-            }
-        }
-
-    }, [props.userRating, props.comment, props.img]);
-
     return (
         <div className={feedback.container}>
             <ReactStars
@@ -33,8 +19,8 @@ const Feedback = (props) => {
                 activeColor="#FFBB1F"
                 onChange={(newValue)=>props.changeRating(newValue)}
             />
-            <div className={feedback.mess__error}>{mess}</div>
             <AddFile
+                img={props.img}
                 onChange={(newValue)=>props.isImg(newValue)}
             />
             <Comment
@@ -44,6 +30,8 @@ const Feedback = (props) => {
             <Answer
                 isAnswer = {props.isAnswer}
                 answerValue = {props.answer}
+                userComment = {props.userComment}
+                minComment={props.minComment}
             />
         </div>
     );

@@ -4,6 +4,7 @@ import img from "./AddFile.module.css";
 import ImageUploading from 'react-images-uploading';
 
 const AddFile = (props) => {
+    // console.log(props);
     const [images, setImages] = React.useState([]);
     const [disabled, setDisabled] = React.useState(false);
     const [mess, setMess] = React.useState('');
@@ -24,7 +25,11 @@ const AddFile = (props) => {
         }
 
         setImages(imageList);
+        showMess(imageList);
+        return imageList;
+    };
 
+    const showMess = (imageList) => {
         if(imageList.length > 2){
             setMess('added maximum number of files');
             setDisabled(true);
@@ -38,8 +43,6 @@ const AddFile = (props) => {
             setMess('you can add 3 files');
             setErrorClass(img.mess);
         }
-
-        return imageList;
     };
 
     const onError = (errors) => {
@@ -94,8 +97,12 @@ const AddFile = (props) => {
                         <div className={img.preview}>
                             {imageList.map((image, index) => (
                                 <div key={index} className={img.preview_item}>
-                                    <img className={img.preview_img} src={image['data_url']} alt={index} onClick={showImg}/>
-                                    <button className={img.preview_btn} onClick={() => onImageRemove(index)}>
+                                    <img className={img.preview_img}
+                                         src={image['data_url']} alt={index}
+                                         onClick={showImg}/>
+                                    <button
+                                        className={img.preview_btn}
+                                        onClick={() => onImageRemove(index)}>
                                         <span className={img.preview_remove}/>
                                     </button>
                                 </div>
