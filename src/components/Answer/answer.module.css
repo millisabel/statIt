@@ -55,6 +55,10 @@
     display: none;
 }
 
+.item__input[disabled]+.item__label{
+    opacity: 0.2;
+}
+
 .item__label{
     position: relative;
 
