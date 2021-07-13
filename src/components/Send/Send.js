@@ -2,17 +2,30 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 import send from "./send.module.css";
+import moment from 'moment';
 
-// const requestURL = 'https://jsonplaceholder.typicode.com/users';
+const  requestURL = 'https://starit-api.herokuapp.com/api/feedback';
 
 const Send = (props) => {
-    let  requestURL = 'https://starit-api.herokuapp.com/api/feedback/'+props.pointerId;
+    console.log(moment().format('YYYY-MM-DD H:mm:ss'));
+    let data = new FormData();
 
-    function sendRequest(url, body){
+    function handleSubmit() {
+        data.append('fbo_id', props.pointerId);
+        data.append('date', moment().format('YYYY-MM-DD h:mm:ss'));
+        data.append('stars', props.rating);
+        data.append('comment', props.comment);
+        data.append('reaction_needed', props.answer);
+
+        sendRequest(requestURL, data)
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+    }
+
+    function sendRequest(url, data){
         return fetch(url, {
             method: 'POST',
-            headers: {'Content-Type': 'multipart/form-data'},
-            body: JSON.stringify(body),
+            body: data,
         }).then(response => {
             if (!response.ok) {
                 throw new Error("HTTP error " + response.status);
@@ -21,32 +34,13 @@ const Send = (props) => {
         })
     }
 
-    function handleSubmit() {
-
-        const data = {
-            id: props.businessId,
-            fbo_id: props.pointerId,
-            date: new Date().toLocaleDateString(),
-            time: new Date().toLocaleTimeString(),
-            stars: props.rating,
-            comment: props.comment,
-            reaction_needed: props.answer,
-            // img: getImg(props.img),
-            customer_id: 1
-        };
-
-        sendRequest(requestURL, data)
-            .then(data => console.log(data))
-            .catch(err => console.log(err));
-    }
-
-    const getImg = (arr) => {
-        let newArr = [];
-        for (let i = 0; i < arr.length; i++) {
-            newArr.push(arr[i].data_url);
-        }
-        return newArr;
-    };
+    // const getImg = (arr) => {
+    //     let newArr = [];
+    //     for (let i = 0; i < arr.length; i++) {
+    //         newArr.push(arr[i].data_url);
+    //     }
+    //     return newArr;
+    // };
 
     return (
         <Link
@@ -100,3 +94,4 @@ const Send = (props) => {
 };
 
 export default Send;
+
