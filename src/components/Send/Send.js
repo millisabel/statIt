@@ -7,12 +7,11 @@ import moment from 'moment';
 const  requestURL = 'https://starit-api.herokuapp.com/api/feedback';
 
 const Send = (props) => {
-    console.log(moment().format('YYYY-MM-DD H:mm:ss'));
     let data = new FormData();
 
     function handleSubmit() {
         data.append('fbo_id', props.pointerId);
-        data.append('date', moment().format('YYYY-MM-DD h:mm:ss'));
+        data.append('date', moment().format('YYYY-MM-DD H:mm:ss'));
         data.append('stars', props.rating);
         data.append('comment', props.comment);
         data.append('reaction_needed', props.answer);
