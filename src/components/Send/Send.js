@@ -4,9 +4,12 @@ import {Link} from "react-router-dom";
 import send from "./send.module.css";
 import moment from 'moment';
 
+// const  requestURL = '#';
 const  requestURL = 'https://starit-api.herokuapp.com/api/feedback';
 
 const Send = (props) => {
+
+    console.log(props);
     let data = new FormData();
 
     function handleSubmit() {
@@ -15,6 +18,7 @@ const Send = (props) => {
         data.append('stars', props.rating);
         data.append('comment', props.comment);
         data.append('reaction_needed', props.answer);
+        data.append('photo', getImg(props.img));
 
         sendRequest(requestURL, data)
             .then(data => console.log(data))
@@ -33,18 +37,18 @@ const Send = (props) => {
         })
     }
 
-    // const getImg = (arr) => {
-    //     let newArr = [];
-    //     for (let i = 0; i < arr.length; i++) {
-    //         newArr.push(arr[i].data_url);
-    //     }
-    //     return newArr;
-    // };
+    const getImg = (arr) => {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            newArr.push(arr[i].data_url);
+        }
+        return JSON.stringify(newArr.join('&'));
+    };
 
     return (
         <Link
             to={{
-                pathname: "/api/thanks",
+                pathname: "/statIt/thanks",
                 state: {
                     rating: props.rating,
                     logo: props.logo,

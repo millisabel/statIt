@@ -8,13 +8,13 @@ const Comment = ({userComment, setUserComment}) => {
     const [mess, setMess] = useState('');
 
     useEffect(() => {
-        if (userComment.length >= 1 && userComment.length < 4) {
+        if (userComment&&userComment.length >= 1 && userComment.length < 4) {
             setMess(`min 3 / max 200 characters`);
-        } else if (userComment.length === 200) {
+        } else if (userComment&&userComment.length === 200) {
             setMess('maximum number of characters');
-        } else if (!userComment.length) {
+        } else if (userComment&&!userComment.length) {
             setMess('');
-        } else if (userComment.length >= 4 && userComment.length < 200){
+        } else if (userComment&&userComment.length >= 4 && userComment.length < 200){
             setMess(`${userComment.length} / 200`);
         }
     });
@@ -27,7 +27,7 @@ const Comment = ({userComment, setUserComment}) => {
                 maxLength={200}
                 rows={1}
                 value={userComment}
-                className={comment.text + ' ' + (userComment.length < 4 ? comment.text__warning : '')}
+                className={comment.text + ' ' + (userComment&&userComment.length < 4 ? comment.text__warning : '')}
                 onChange={setUserComment}
             />
             <p className={comment.mess} data-testid="mess">{mess}</p>

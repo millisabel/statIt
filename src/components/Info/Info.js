@@ -6,17 +6,12 @@ import Feedback from "../Feedback/Feedback";
 import Time from "../Time/Time";
 import About from "../About/About";
 import info from "../Info/info.module.css";
-import ReactStars from "react-rating-stars-component";
-import feedback from "../Feedback/feedback.module.css";
-import answer from "../Answer/answer.module.css";
 
 const Info = (props) => {
     const businessId = props.match.params.businessId;
     const pointerId = props.match.params.pointerId;
     const minComment = 3;
 
-    // const businessURL='';
-    // const pointerURL='';
     const businessURL=`https://starit-api.herokuapp.com/api/business/${businessId}`;
     const pointerURL=`https://starit-api.herokuapp.com/api/fbo/${pointerId}`;
 
@@ -121,7 +116,9 @@ const Info = (props) => {
                 name={business}
                 disabled={isDisabled()}
             />
-            <p className={info.mess__error}>{mess}</p>
+            <p className={info.mess__error}>
+                {!rating? mess: null}
+            </p>
         </div>
     );
 };

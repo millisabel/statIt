@@ -21,10 +21,11 @@ function App() {
                 <Header/>
                 <Nav/>
                 <Switch>
-                    <Redirect push from="/statIt"  to="/api"/>
+                    {/*<Redirect push from="/statIt"  to="/api"/>*/}
                     <Route path="/statistics" component={Statistics} />
-                    <Route path="/api" component={Scanner} />
+                    <Route path="/statIt" component={Scanner} />
                     <Route path="/profile" component={Profile} />
+                    <Redirect to="/statIt"/>
                 </Switch>
             </div>
         </Router>

@@ -8,8 +8,9 @@ import ReactStars from "react-rating-stars-component";
 import feedback from "../Feedback/feedback.module.css";
 
 const Feedback = (props) => {
+    // console.log(props);
     return (
-        <div className={feedback.container}>
+        <div className={feedback.container} data-testid="Feedback">
             <ReactStars
                 classNames={feedback.stars}
                 count={5}
